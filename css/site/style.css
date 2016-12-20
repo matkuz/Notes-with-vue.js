@@ -1,74 +1,106 @@
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif; }
 
 body {
   background-color: #2F4F4F; }
 
-header h1 {
-  text-align: center;
-  font-weight: 700;
-  color: #fff; }
-
-section.create-new-note .new-note-text {
-  text-align: center;
-  font-weight: 700;
-  color: #fff; }
-section.create-new-note textarea {
-  width: 100%;
-  max-width: 300px;
-  min-height: 300px;
+header {
+  background-color: #1E2D4E;
   padding: 20px;
-  display: block;
-  margin: 0 auto;
-  resize: none;
-  background-color: #FFFF31;
-  border: none;
-  text-align: center;
   box-shadow: 0 2px 5px #181818; }
-  section.create-new-note textarea:focus {
-    outline: none;
-    text-align: left; }
-section.create-new-note button {
-  width: 100%;
-  max-width: 200px;
-  min-height: 40px;
-  padding: 10px;
-  display: block;
-  margin: 10px auto;
-  background-color: #3F2F4F;
-  color: #fff;
-  text-transform: uppercase;
-  border: none;
-  box-shadow: 0 2px 5px #181818;
-  -webkit-transition: all 0.3s;
-          transition: all 0.3s; }
-  section.create-new-note button:hover {
-    opacity: 0.6; }
-  section.create-new-note button.display-notes-btn {
-    background-color: #65703F; }
-section.display-notes ul {
-  list-style: none;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around;
-  margin: 0;
-  padding: 0; }
-  section.display-notes ul li {
+  header h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 5px; }
+
+section {
+  padding: 50px 0; }
+  section.create-new-note .new-note-text {
+    text-align: center;
+    font-weight: 700;
+    color: #fff; }
+  section.create-new-note textarea {
     width: 100%;
     max-width: 300px;
     min-height: 300px;
     padding: 20px;
     display: block;
-    margin: 10px auto;
+    margin: 0 auto;
     resize: none;
     background-color: #FFFF31;
     border: none;
     text-align: center;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 2rem;
     box-shadow: 0 2px 5px #181818; }
+    section.create-new-note textarea:focus {
+      outline: none;
+      text-align: left; }
+  section.create-new-note button {
+    width: 100%;
+    max-width: 200px;
+    min-height: 40px;
+    padding: 10px;
+    display: block;
+    margin: 10px auto;
+    background-color: #3F2F4F;
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 0 2px 5px #181818;
+    -webkit-transition: all 0.3s;
+            transition: all 0.3s; }
+    section.create-new-note button:hover {
+      opacity: 0.6; }
+    section.create-new-note button.display-notes-btn {
+      background-color: #65703F; }
+  section.display-notes ul {
+    list-style: none;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+    margin: 0;
+    padding: 0; }
+    section.display-notes ul li {
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      height: 300px;
+      padding: 20px;
+      display: block;
+      margin: 10px auto;
+      resize: none;
+      background-color: #FFFF31;
+      border: none;
+      text-align: center;
+      font-family: 'Gloria Hallelujah', cursive;
+      font-size: 2rem;
+      overflow: auto;
+      box-shadow: 0 2px 5px #181818; }
+      section.display-notes ul li .delete-note-btn {
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+        background-color: transparent;
+        border: none;
+        font-size: 2rem;
+        -webkit-transition: all 0.3s;
+                transition: all 0.3s; }
+        section.display-notes ul li .delete-note-btn:hover {
+          color: red; }
+      section.display-notes ul li .title-note {
+        text-transform: uppercase;
+        font-weight: 700;
+        border-bottom: 2px dotted #181818; }

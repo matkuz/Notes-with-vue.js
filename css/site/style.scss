@@ -1,17 +1,26 @@
 *{
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
 }
 body{
     background-color: #2F4F4F;
 }
 header{
+    background-color: #1E2D4E;
+    padding: 20px;
+    box-shadow: 0 2px 5px #181818;
     h1{
         text-align: center;
+        text-transform: uppercase;
         font-weight: 700;
         color: #fff;
+        margin: 0;
+        padding: 0;
+        letter-spacing: 5px;
     }
 }
 section{
+    padding: 50px 0;
     &.create-new-note{
         .new-note-text{
             text-align: center;
@@ -29,6 +38,8 @@ section{
             background-color: #FFFF31;
             border: none;
             text-align: center;
+            font-family: 'Gloria Hallelujah', cursive;
+            font-size: 2rem;
             box-shadow: 0 2px 5px #181818;
             &:focus{
                 outline: none;
@@ -65,9 +76,10 @@ section{
             margin: 0;
             padding: 0;
             li{
+                position: relative;
                 width: 100%;
                 max-width: 300px;
-                min-height: 300px;
+                height: 300px;
                 padding: 20px;
                 display: block;
                 margin: 10px auto;
@@ -75,7 +87,27 @@ section{
                 background-color: #FFFF31;
                 border: none;
                 text-align: center;
+                font-family: 'Gloria Hallelujah', cursive;
+                font-size: 2rem;
+                overflow: auto;
                 box-shadow: 0 2px 5px #181818;
+                .delete-note-btn{
+                    position: absolute;
+                    right: 5px;
+                    bottom: 5px;
+                    background-color: transparent;
+                    border: none;
+                    font-size: 2rem;
+                    transition: all 0.3s;
+                    &:hover{
+                        color: red;
+                    }
+                }
+                .title-note{
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    border-bottom: 2px dotted #181818;
+                }
             }
         }
     }

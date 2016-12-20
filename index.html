@@ -5,6 +5,8 @@
     <title>Notes</title>
 <!--Fonts-->    
     <link href="css/site/font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <!--jQuery-->
     <script src="js/site/jquery.min.js"></script>
 <!--vue.js-->
@@ -25,7 +27,7 @@
     <main id="vue-app">
         <section class="create-new-note">
             <div class="container">
-                <p class="new-note-text">Podaj treść</p>
+                <p class="new-note-text">Nowa notatka</p>
                 <textarea v-model="text_of_note" type="text" placeholder="Treść"></textarea>
                 <button class="save-note-btn" v-on:click="new_note">Zapisz notatkę</button>
                 <button class="display-notes-btn" v-on:click="display_notes">Pokaż listę notatek</button>
@@ -35,8 +37,11 @@
             <div class="container">
                 <ul>
                     <li v-for="note in notes">
-                        Notatka {{$index + 1}} <br>{{note}}
-                        <button class="" v-on:click="delete_note($index)">Usuń notatkę</button>
+                        <span class="title-note">Notatka {{$index + 1}}</span> <br>
+                        {{note}}
+                        <button class="delete-note-btn" v-on:click="delete_note($index)">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -79,6 +84,7 @@
                 for (var i = 0; i < localStorage.length; i++){
                     this.notes.push(localStorage.getItem(i));
                 }
+                this.n = this.n - 1;
             }
         },
         computed: {
