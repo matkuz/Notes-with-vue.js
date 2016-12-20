@@ -1,0 +1,133 @@
+//BOOTSTRAP breakpoint
+/* Small devices (tablets, 768px and up) */
+$Bsm: 768px;  
+
+/* Medium devices (desktops, 992px and up) */
+$Bmd: 992px;
+
+/* Large devices (large desktops, 1200px and up) */
+$Blg: 1200px;
+
+@mixin Center($top:0, $right:auto, $bottom:0, $left: auto){
+    margin: $top $right $bottom $left;
+}
+@mixin Main{
+    box-sizing:border-box;
+    margin:0;
+    padding: 0;
+}
+
+@mixin background($url,$position1:center, $position2:center){
+    background: {
+            image: url($url);
+            position: $position1 $position2;
+            repeat: no-repeat;
+            size: cover;
+        }   
+}
+@mixin aHref{
+                    cursor: pointer;
+                    &:link {
+                        text-decoration: none;
+                    }
+                    &:visited {
+                        text-decoration: none;
+                    }
+                    &:active {
+                        text-decoration: none;
+                    }
+                    &:hover {
+                        text-decoration: none;
+                    }  
+}
+@mixin underline(
+    $UnderlineColor:black,
+    $UnderlineHeight:4px, 
+    $UnderlineWidth:35px,
+    $UnderlineMargin:20px,
+    $leftMargin: auto
+    )
+{
+        &:after{
+        content: '';
+        display: block;
+        background: $UnderlineColor;
+        height: $UnderlineHeight;
+        max-width: $UnderlineWidth;
+        width: 100%;
+        margin: $UnderlineMargin auto;
+        margin-left: $leftMargin;
+    }
+}
+@mixin verticalCenter{
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
+@mixin Animation($name: animation,$time: 2s,$iteration: 1, $direction: normal, $timing-function: linear, $fill-mode: forwards){
+    //iteration: number, infinite, initial, inherit
+    //direction: normal, reverse, alternate, alternate-reverse, initial, inherit
+    //timing-function: ease, linear, ease-in, ease-out, ease-in-out
+    animation-name: $name;
+    animation-duration: $time;
+    animation-iteration-count: $iteration;
+    animation-direction: $direction;
+    animation-timing-function: $timing-function;
+    animation-fill-mode: $fill-mode;;
+    -webkit-animation-name: $name;
+    -webkit-animation-duration: $time; 
+    -webkit-animation-iteration-count: $iteration;
+    -webkit-animation-direction: $direction;
+    -webkit-animation-timing-function: $timing-function;
+    -webkit-animation-fill-mode: $fill-mode;
+    -moz-animation-name: $name;
+    -moz-animation-duration: $time;
+    -moz-animation-iteration-count: $iteration;
+    -moz-animation-direction: $direction;
+    -moz-animation-timing-function: $timing-function;
+    -moz-animation-fill-mode: $fill-mode;
+}
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-o-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+@mixin placeholder($color) {
+  &:-moz-placeholder            { color: $color; opacity: 1; } 	// Firefox 4-18
+  &::-moz-placeholder           { color: $color; opacity: 1; } 	// Firefox 19+
+  &:-ms-input-placeholder       { color: $color; } 				// Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: $color; } 				// Safari and Chrome
+}
+
+
+
+/***********    SLIDER PAGINATION   ***********/
+/*.owl-controls{
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+        .owl-pagination{
+            margin: 0 auto;//center
+                span{
+                    background-color: #dbb13b;
+                    }
+                .active{
+                    span{
+                    background-color: transparent;//empty circle with border
+                    border: 2px solid #dbb13b;
+                    }
+                }
+        }
+    }*/

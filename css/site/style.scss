@@ -1,0 +1,82 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #2F4F4F;
+}
+header{
+    h1{
+        text-align: center;
+        font-weight: 700;
+        color: #fff;
+    }
+}
+section{
+    &.create-new-note{
+        .new-note-text{
+            text-align: center;
+            font-weight: 700;
+            color: #fff;
+        }
+        textarea{
+            width: 100%;
+            max-width: 300px;
+            min-height: 300px;
+            padding: 20px;
+            display: block;
+            margin: 0 auto;
+            resize: none;
+            background-color: #FFFF31;
+            border: none;
+            text-align: center;
+            box-shadow: 0 2px 5px #181818;
+            &:focus{
+                outline: none;
+                text-align: left;
+            }
+        }
+        button{
+            width: 100%;
+            max-width: 200px;
+            min-height: 40px;
+            padding: 10px;
+            display: block;
+            margin: 10px auto;
+            background-color: #3F2F4F;
+            color: #fff;
+            text-transform: uppercase;
+            border: none;
+            box-shadow: 0 2px 5px #181818;
+            transition: all 0.3s;
+            &:hover{
+                opacity: 0.6;
+            }
+            &.display-notes-btn{
+                background-color: #65703F;
+            }
+        }
+    }
+    &.display-notes{
+        ul{
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 0;
+            padding: 0;
+            li{
+                width: 100%;
+                max-width: 300px;
+                min-height: 300px;
+                padding: 20px;
+                display: block;
+                margin: 10px auto;
+                resize: none;
+                background-color: #FFFF31;
+                border: none;
+                text-align: center;
+                box-shadow: 0 2px 5px #181818;
+            }
+        }
+    }
+}

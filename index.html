@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+<!--Fonts-->    
+    <link href="css/site/font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!--jQuery-->
+    <script src="js/site/jquery.min.js"></script>
+<!--vue.js-->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--Bootstrap-->
+    <link rel="stylesheet" href="css/site/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/site/bootstrap/css/bootstrap-theme.min.css">
+    <script src="js/site/bootstrap/js/bootstrap.min.js"></script>
+<!--Style-->
+    <link rel="stylesheet" type="text/css" href="css/site/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Twoje notatki</h1>
+        </div>
+    </header>
+    <main id="vue-app">
+        <section class="create-new-note">
+            <div class="container">
+                <p class="new-note-text">Podaj treść</p>
+                <textarea v-model="text_of_note" type="text" placeholder="Treść"></textarea>
+                <button class="save-note-btn" v-on:click="new_note">Zapisz notatkę</button>
+                <button class="display-notes-btn" v-on:click="display_notes">Pokaż listę notatek</button>
+            </div>
+        </section>
+        <section class="display-notes">
+            <div class="container">
+                <ul>
+                    <li v-for="note in notes">Notatka: {{$index + 1}} <br>Treść: {{note}}</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+    
+    <script src="http://cdn.jsdelivr.net/vue/1.0.16/vue.js"></script>
+
+<script>
+    var vm = new Vue({
+        el: '#vue-app',
+        data: {
+            n : localStorage.length,
+            notes: [],
+            display_notes_status : 0
+        },
+        methods: {
+            new_note: function(){
+                localStorage.setItem(this.n , this.text_of_note);//save note in localSorage
+                this.notes.push(this.text_of_note);//adding to display notes
+                this.n = this.n + 1;
+            },
+            display_notes: function(){
+                /* display notes after click btn ( only once possibility ) */
+                if(this.display_notes_status == 0){
+                    for (var i = 0; i < localStorage.length; i++){
+                        this.notes.push(localStorage.getItem(i));
+                    }
+                    this.display_notes_status = 1;
+                    $(".display-notes-btn").hide("slow");
+                }else{
+                    alert("Notatki są już wyświetlone lub nie dodałeś jeszcze ani jednej ;)");
+                }
+                
+            }
+        },
+        computed: {
+            
+        }
+    });
+</script>
+    
+    
+    
+</body>
+</html>
