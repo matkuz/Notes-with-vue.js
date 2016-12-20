@@ -34,7 +34,10 @@
         <section class="display-notes">
             <div class="container">
                 <ul>
-                    <li v-for="note in notes">Notatka: {{$index + 1}} <br>Treść: {{note}}</li>
+                    <li v-for="note in notes">
+                        Notatka {{$index + 1}} <br>{{note}}
+                        <button class="" v-on:click="delete_note($index)">Usuń notatkę</button>
+                    </li>
                 </ul>
             </div>
         </section>
@@ -60,6 +63,7 @@
             display_notes: function(){
                 /* display notes after click btn ( only once possibility ) */
                 if(this.display_notes_status == 0){
+                    this.notes = [];
                     for (var i = 0; i < localStorage.length; i++){
                         this.notes.push(localStorage.getItem(i));
                     }
@@ -68,7 +72,13 @@
                 }else{
                     alert("Notatki są już wyświetlone lub nie dodałeś jeszcze ani jednej ;)");
                 }
-                
+            },
+            delete_note: function(key){
+                localStorage.removeItem(key);
+                this.notes = [];
+                for (var i = 0; i < localStorage.length; i++){
+                    this.notes.push(localStorage.getItem(i));
+                }
             }
         },
         computed: {
