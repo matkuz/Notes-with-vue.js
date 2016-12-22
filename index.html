@@ -30,70 +30,37 @@
                 <p class="new-note-text">Nowa notatka</p>
                 <textarea v-model="text_of_note" type="text" placeholder="Treść"></textarea>
                 <button class="save-note-btn" v-on:click="new_note">Zapisz notatkę</button>
-                <button class="display-notes-btn" v-on:click="display_notes">Pokaż listę notatek</button>
+                <button class="display-notes-btn" v-if="exist_notes" v-on:click="display_notes">
+                    Pokaż listę notatek
+                </button>
             </div>
         </section>
         <section class="display-notes">
             <div class="container">
                 <ul>
                     <li v-for="note in notes">
-                        <span class="title-note">Notatka {{$index + 1}}</span> <br>
+                        <span class="title-note">
+                            Notatka {{$index + 1}}
+                        </span><br>
                         {{note}}
                         <button class="delete-note-btn" v-on:click="delete_note($index)">
                             <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </button>
+                        <button class="edit-note-btn" v-on:click="edit_note($index)">
+                            <i class="fa fa-cog" aria-hidden="true"></i>
                         </button>
                     </li>
                 </ul>
             </div>
         </section>
+        <section class="edit-window" v-if="note_is_edited">
+            <h2>Edytuj notatkę</h2>
+            <textarea  v-model="text_of_edit_note" type="text" placeholder="Treść">{{note_to_edit}}</textarea>
+            <button class="" v-on:click="save_edit_note">Zapisz</button>
+        </section>
     </main>
-    
-    
+    <!-- scripts -->
     <script src="http://cdn.jsdelivr.net/vue/1.0.16/vue.js"></script>
-
-<script>
-    var vm = new Vue({
-        el: '#vue-app',
-        data: {
-            n : localStorage.length,
-            notes: [],
-            display_notes_status : 0
-        },
-        methods: {
-            new_note: function(){
-                localStorage.setItem(this.n , this.text_of_note);//save note in localSorage
-                this.notes.push(this.text_of_note);//adding to display notes
-                this.n = this.n + 1;
-            },
-            display_notes: function(){
-                /* display notes after click btn ( only once possibility ) */
-                if(this.display_notes_status == 0){
-                    this.notes = [];
-                    for (var i = 0; i < localStorage.length; i++){
-                        this.notes.push(localStorage.getItem(i));
-                    }
-                    this.display_notes_status = 1;
-                    $(".display-notes-btn").hide("slow");
-                }else{
-                    alert("Notatki są już wyświetlone lub nie dodałeś jeszcze ani jednej ;)");
-                }
-            },
-            delete_note: function(key){
-                localStorage.removeItem(key);
-                this.notes = [];
-                for (var i = 0; i < localStorage.length; i++){
-                    this.notes.push(localStorage.getItem(i));
-                }
-                this.n = this.n - 1;
-            }
-        },
-        computed: {
-            
-        }
-    });
-</script>
-    
-    
-    
+    <script src="js/site/app.js"></script>
 </body>
 </html>

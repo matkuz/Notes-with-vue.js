@@ -58,6 +58,7 @@ section{
             text-transform: uppercase;
             border: none;
             box-shadow: 0 2px 5px #181818;
+            outline: none;
             transition: all 0.3s;
             &:hover{
                 opacity: 0.6;
@@ -91,6 +92,11 @@ section{
                 font-size: 2rem;
                 overflow: auto;
                 box-shadow: 0 2px 5px #181818;
+                .title-note{
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    border-bottom: 2px dotted #181818;
+                }
                 .delete-note-btn{
                     position: absolute;
                     right: 5px;
@@ -103,11 +109,74 @@ section{
                         color: red;
                     }
                 }
-                .title-note{
-                    text-transform: uppercase;
-                    font-weight: 700;
-                    border-bottom: 2px dotted #181818;
+                .edit-note-btn{
+                    position: absolute;
+                    left: 5px;
+                    bottom: 5px;
+                    background-color: transparent;
+                    border: none;
+                    font-size: 2rem;
+                    transition: all 0.3s;
+                    &:hover{
+                        color: red;
+                    }
                 }
+            }
+        }
+    }
+    &.edit-window{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        min-height: 100vh;
+        background-color: rgba(1,1,1,0.9);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        h2{
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-align: center;
+        }
+        textarea{
+            width: 70%;
+            height: 70%;
+            padding: 20px;
+            display: block;
+            margin: 0 auto;
+            resize: none;
+            background-color: #FFFF31;
+            border: none;
+            text-align: center;
+            font-family: 'Gloria Hallelujah', cursive;
+            color: #111;
+            font-size: 2rem;
+            box-shadow: 0 2px 5px #181818;
+            &:focus{
+                outline: none;
+                text-align: left;
+            }
+        }
+        button{
+            width: 100%;
+            max-width: 200px;
+            min-height: 40px;
+            padding: 10px;
+            display: block;
+            margin: 10px auto;
+            background-color: #3F2F4F;
+            color: #fff;
+            text-transform: uppercase;
+            border: none;
+            box-shadow: 0 2px 5px #181818;
+            transition: all 0.3s;
+            &:hover{
+                opacity: 0.6;
             }
         }
     }

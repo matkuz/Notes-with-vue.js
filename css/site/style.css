@@ -53,6 +53,7 @@ section {
     text-transform: uppercase;
     border: none;
     box-shadow: 0 2px 5px #181818;
+    outline: none;
     -webkit-transition: all 0.3s;
             transition: all 0.3s; }
     section.create-new-note button:hover {
@@ -89,6 +90,10 @@ section {
       font-size: 2rem;
       overflow: auto;
       box-shadow: 0 2px 5px #181818; }
+      section.display-notes ul li .title-note {
+        text-transform: uppercase;
+        font-weight: 700;
+        border-bottom: 2px dotted #181818; }
       section.display-notes ul li .delete-note-btn {
         position: absolute;
         right: 5px;
@@ -100,7 +105,78 @@ section {
                 transition: all 0.3s; }
         section.display-notes ul li .delete-note-btn:hover {
           color: red; }
-      section.display-notes ul li .title-note {
-        text-transform: uppercase;
-        font-weight: 700;
-        border-bottom: 2px dotted #181818; }
+      section.display-notes ul li .edit-note-btn {
+        position: absolute;
+        left: 5px;
+        bottom: 5px;
+        background-color: transparent;
+        border: none;
+        font-size: 2rem;
+        -webkit-transition: all 0.3s;
+                transition: all 0.3s; }
+        section.display-notes ul li .edit-note-btn:hover {
+          color: red; }
+  section.edit-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(1, 1, 1, 0.9);
+    color: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    section.edit-window h2 {
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      text-align: center; }
+    section.edit-window textarea {
+      width: 70%;
+      height: 70%;
+      padding: 20px;
+      display: block;
+      margin: 0 auto;
+      resize: none;
+      background-color: #FFFF31;
+      border: none;
+      text-align: center;
+      font-family: 'Gloria Hallelujah', cursive;
+      color: #111;
+      font-size: 2rem;
+      box-shadow: 0 2px 5px #181818; }
+      section.edit-window textarea:focus {
+        outline: none;
+        text-align: left; }
+    section.edit-window button {
+      width: 100%;
+      max-width: 200px;
+      min-height: 40px;
+      padding: 10px;
+      display: block;
+      margin: 10px auto;
+      background-color: #3F2F4F;
+      color: #fff;
+      text-transform: uppercase;
+      border: none;
+      box-shadow: 0 2px 5px #181818;
+      -webkit-transition: all 0.3s;
+              transition: all 0.3s; }
+      section.edit-window button:hover {
+        opacity: 0.6; }
