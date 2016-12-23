@@ -9,8 +9,12 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <!--jQuery-->
     <script src="js/site/jquery.min.js"></script>
-<!--vue.js-->
+<!--Vue.js-->
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+<!-- VueFire -->
+    <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
 <!--Bootstrap-->
     <link rel="stylesheet" href="css/site/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/site/bootstrap/css/bootstrap-theme.min.css">
@@ -30,7 +34,7 @@
                 <p class="new-note-text">Nowa notatka</p>
                 <textarea v-model="text_of_note" type="text" placeholder="Treść"></textarea>
                 <button class="save-note-btn" v-on:click="new_note">Zapisz notatkę</button>
-                <button class="display-notes-btn" v-if="exist_notes" v-on:click="display_notes">
+                <button class="display-notes-btn" v-if="exist_notes" v-on:click="display_notes_btn">
                     Pokaż listę notatek
                 </button>
             </div>
@@ -51,12 +55,21 @@
                         </button>
                     </li>
                 </ul>
+                
+                <!--<input type="email" v-model="email"/>
+                <input type="password" v-model="password"/>
+                <button v-on:click="sign_in">Zaloguj</button>-->
+                <div id="deb"></div>
+                
             </div>
         </section>
         <section class="edit-window" v-if="note_is_edited">
             <h2>Edytuj notatkę</h2>
             <textarea  v-model="text_of_edit_note" type="text" placeholder="Treść">{{note_to_edit}}</textarea>
             <button class="" v-on:click="save_edit_note">Zapisz</button>
+        </section>
+        <section v-if="is_img_in_text">
+            <img v-bind:src="link_to_img"></img>
         </section>
     </main>
     <!-- scripts -->
