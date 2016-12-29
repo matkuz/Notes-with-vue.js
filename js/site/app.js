@@ -80,12 +80,15 @@ var vm = new Vue({
                 var before_link = this.text_of_note.substr(0 , http_link);
                 value_link = this.text_of_note.replace(before_link, "");
                 var space = value_link.indexOf(" ");
-                //console.log("wynik: "+value_link);
                 if(space > -1){
                     for(var i = 0; i < this.img_format.length; i++){
                         if(value_link.indexOf(this.img_format[i]) > -1){
-                            return value_link;
+                            //return value_link;
+                            var stat = 1;
                         }
+                    }
+                    if(stat = 1){
+                        return value_link;
                     }
                 }
             }
