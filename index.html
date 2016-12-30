@@ -31,9 +31,16 @@
     <main id="vue-app">
         <section class="create-new-note">
             <div class="container">
-                <p class="new-note-text">Nowa notatka</p>
+                <p class="new-note-text">
+                    Nowa notatka
+                </p>
                 <textarea v-model="text_of_note" type="text" placeholder="Treść"></textarea>
-                <button class="save-note-btn" v-on:click="new_note">Zapisz notatkę</button>
+                <figure v-if="is_img_in_text">
+                    <img v-bind:src="link_to_img"></img>
+                </figure>
+                <button class="save-note-btn" v-on:click="new_note">
+                    Zapisz notatkę
+                </button>
                 <button class="display-notes-btn" v-if="exist_notes" v-on:click="display_notes_btn">
                     Pokaż listę notatek
                 </button>
@@ -67,9 +74,6 @@
             <h2>Edytuj notatkę</h2>
             <textarea  v-model="text_of_edit_note" type="text" placeholder="Treść">{{note_to_edit}}</textarea>
             <button class="" v-on:click="save_edit_note">Zapisz</button>
-        </section>
-        <section v-if="is_img_in_text">
-            <img v-bind:src="link_to_img"></img>
         </section>
     </main>
     <!-- scripts -->

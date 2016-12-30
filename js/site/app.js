@@ -39,12 +39,25 @@ var vm = new Vue({
             }
         },
         delete_note: function( key ){
-            localStorage.removeItem(key);
-            this.notes = [];
-            for (var i = 0; i < localStorage.length; i++){
-                this.notes.push(localStorage.getItem(i));
+            if(this.n==1){
+                //deleting for 1 element
+                localStorage.removeItem(0);
+                this.notes = [];
+            }else{
+                var k = (this.n) - 1;
+                //taking value from next record (only values above key) and deleting last value
+                for (var i = key; i < k; i++){
+                    localStorage.setItem(i,localStorage.getItem(i+1));
+                }
+                var lsl = this.n - 1;
+                localStorage.removeItem(lsl);
+                this.n = this.n - 1;
+                this.notes = [];
+                //display in array
+                for (var i = 0; i < this.n; i++){
+                    this.notes.push(localStorage.getItem(i));
+                } 
             }
-            this.n = this.n - 1;
         },
         edit_note: function( key_of_note ){
             this.note_is_edited = !this.note_is_edited;
@@ -83,12 +96,20 @@ var vm = new Vue({
                 if(space > -1){
                     for(var i = 0; i < this.img_format.length; i++){
                         if(value_link.indexOf(this.img_format[i]) > -1){
-                            //return value_link;
-                            var stat = 1;
+                            return value_link;
                         }
                     }
-                    if(stat = 1){
-                        return value_link;
+                }
+            }
+            if( https_link > -1){
+                var before_link = this.text_of_note.substr(0 , https_link);
+                value_link = this.text_of_note.replace(before_link, "");
+                var space = value_link.indexOf(" ");
+                if(space > -1){
+                    for(var i = 0; i < this.img_format.length; i++){
+                        if(value_link.indexOf(this.img_format[i]) > -1){
+                            return value_link;
+                        }
                     }
                 }
             }

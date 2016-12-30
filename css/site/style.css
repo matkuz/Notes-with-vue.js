@@ -41,6 +41,12 @@ section {
     section.create-new-note textarea:focus {
       outline: none;
       text-align: left; }
+  section.create-new-note figure {
+    max-width: 300px;
+    height: auto;
+    margin: 10px auto; }
+    section.create-new-note figure img {
+      width: 300px; }
   section.create-new-note button {
     width: 100%;
     max-width: 200px;

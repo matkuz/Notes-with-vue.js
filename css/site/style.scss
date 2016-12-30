@@ -46,6 +46,14 @@ section{
                 text-align: left;
             }
         }
+        figure{
+            max-width: 300px;
+            height: auto;
+            margin: 10px auto;
+            img{
+                width: 300px;
+            }
+        }
         button{
             width: 100%;
             max-width: 200px;
